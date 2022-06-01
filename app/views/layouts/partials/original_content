@@ -1,0 +1,16 @@
+<!-- Begin Slider With Banner Area 
+            @include('layouts.partials.slider_banner')
+            <!-- Slider With Banner Area End Here -->
+            <!-- Begin Product Area -->
+            @include('layouts.partials.product_area')
+            <!-- Product Area End Here -->
+            <!-- Begin Li's Static Banner Area -->
+            @include('layouts.partials.static_banner')
+            <!-- Li's Static Banner Area End Here -->
+            <!-- Begin Li's Laptop Product Area -->
+            @include('layouts.partials.laptop_product_area')
+            <!-- Li's Laptop Product Area End Here -->
+            <!-- Begin Li's Static Home Area -->
+            @include('layouts.partials.static_home')
+            <!-- Li's Static Home Area End Here -->
+            <!-- Begin Footer Area -->

@@ -1,105 +1,116 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="zxx">
+    
+<!-- index28:48-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bodega || @yield('title')</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{URL}}images/favicon.png">
+        <!-- Material Design Iconic Font-V2.2.0 -->
+        <link rel="stylesheet" href="{{URL}}css/material-design-iconic-font.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{URL}}css/font-awesome.min.css">
+        <!-- Font Awesome Stars-->
+        <link rel="stylesheet" href="{{URL}}css/fontawesome-stars.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{URL}}css/meanmenu.css">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{{URL}}css/owl.carousel.min.css">
+        <!-- Slick Carousel CSS -->
+        <link rel="stylesheet" href="{{URL}}css/slick.css">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{URL}}css/animate.css">
+        <!-- Jquery-ui CSS -->
+        <link rel="stylesheet" href="{{URL}}css/jquery-ui.min.css">
+        <!-- Venobox CSS -->
+        <link rel="stylesheet" href="{{URL}}css/venobox.css">
+        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="{{URL}}css/nice-select.css">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{{URL}}css/magnific-popup.css">
+        <!-- Bootstrap V4.1.3 Fremwork CSS -->
+        <link rel="stylesheet" href="{{URL}}css/bootstrap.min.css">
+        <!-- Helper CSS -->
+        <link rel="stylesheet" href="{{URL}}css/helper.css">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="{{URL}}style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{URL}}css/responsive.css">
+        <!-- Modernizr js -->
+        <script src="{{URL}}js/vendor/modernizr-2.8.3.min.js"></script>
+        {{-- STYLES --}}
+        @yield('styles')
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+        <!-- Begin Body Wrapper -->
+        <div class="body-wrapper">
+            <!-- Begin Header Area -->
+            @include('layouts.partials.header')
+            <!-- Header Area End Here -->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Portafolio - @yield('title')</title>
+            {{-- CONTENT --}}
+            @yield('content')
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
-
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="<?= URL . 'css/bootstrap.min.css' ?>" rel="stylesheet">
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="<?= URL . 'css/dashboard.css' ?>" rel="stylesheet">
-    @yield("styles")
-</head>
-
-<body class="d-flex flex-column min-vh-100">
-
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <!-- Logo de RDP -->
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">PORTAFOLIO</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
-        <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Cerrar Sesión</a>
-            </div>
+            @include('layouts.partials.footer')
+            <!-- Footer Area End Here -->
+            <!-- Begin Quick View | Modal Area -->
+            @include('layouts.partials.modal_area')
+            <!-- Quick View | Modal Area End Here -->
         </div>
-    </header>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidenav abajo -->
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost/Portfolio/public/home/index">
-                                <span data-feather="home"></span>
-                                Presentación
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/Portfolio/public/home/about">
-                                <span data-feather="file"></span>
-                                Acerca De
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/Portfolio/public/home/experience">
-                                <span data-feather="users"></span>
-                                Experiencia
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/Portfolio/public/home/projects">
-                                <span data-feather="bar-chart-2"></span>
-                                Proyectos
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                @yield("content")
-            </main>
-        </div>
-    </div>
-    <footer class="content bg-light text-center text-lg-start mt-auto" style="z-index: 101">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © Copyright 2022 - 2023, RDP Digital Todos los derechos reservados.
-        </div>
-  <!-- Copyright -->
-    </footer>
-    @yield("scripts")
-</body>
+        <!-- Body Wrapper End Here -->
+        <!-- jQuery-V1.12.4 -->
+        <script src="{{URL}}js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="{{URL}}js/vendor/popper.min.js"></script>
+        <!-- Bootstrap V4.1.3 Fremwork js -->
+        <script src="{{URL}}js/bootstrap.min.js"></script>
+        <!-- Ajax Mail js -->
+        <script src="{{URL}}js/ajax-mail.js"></script>
+        <!-- Meanmenu js -->
+        <script src="{{URL}}js/jquery.meanmenu.min.js"></script>
+        <!-- Wow.min js -->
+        <script src="{{URL}}js/wow.min.js"></script>
+        <!-- Slick Carousel js -->
+        <script src="{{URL}}js/slick.min.js"></script>
+        <!-- Owl Carousel-2 js -->
+        <script src="{{URL}}js/owl.carousel.min.js"></script>
+        <!-- Magnific popup js -->
+        <script src="{{URL}}js/jquery.magnific-popup.min.js"></script>
+        <!-- Isotope js -->
+        <script src="{{URL}}js/isotope.pkgd.min.js"></script>
+        <!-- Imagesloaded js -->
+        <script src="{{URL}}js/imagesloaded.pkgd.min.js"></script>
+        <!-- Mixitup js -->
+        <script src="{{URL}}js/jquery.mixitup.min.js"></script>
+        <!-- Countdown -->
+        <script src="{{URL}}js/jquery.countdown.min.js"></script>
+        <!-- Counterup -->
+        <script src="{{URL}}js/jquery.counterup.min.js"></script>
+        <!-- Waypoints -->
+        <script src="{{URL}}js/waypoints.min.js"></script>
+        <!-- Barrating -->
+        <script src="{{URL}}js/jquery.barrating.min.js"></script>
+        <!-- Jquery-ui -->
+        <script src="{{URL}}js/jquery-ui.min.js"></script>
+        <!-- Venobox -->
+        <script src="{{URL}}js/venobox.min.js"></script>
+        <!-- Nice Select js -->
+        <script src="{{URL}}js/jquery.nice-select.min.js"></script>
+        <!-- ScrollUp js -->
+        <script src="{{URL}}js/scrollUp.min.js"></script>
+        <!-- Main/Activator js -->
+        <script src="{{URL}}js/main.js"></script>
 
+        {{-- SCRIPTS --}}
+        @yield('scripts')
+    </body>
+
+<!-- index30:23-->
 </html>
