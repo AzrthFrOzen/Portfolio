@@ -1,8 +1,15 @@
 <?php
-
+//EL ORDEN IMPORTA
 require_once "../vendor/autoload.php";
 
+// CARGAMOS EL ARCHIVO DE CONFIGURACIÓN .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+
 require_once "../config/config.php";
+
+
 /*
 Se puede colocar new Core() con un use Libs\Core;
 o Se puede colocar directamente new Libs\Core();

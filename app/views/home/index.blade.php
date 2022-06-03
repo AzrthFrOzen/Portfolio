@@ -3,11 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-    @component('layouts.components.alert', )
-        @slot('title', 'Advertencia')
-        @slot('color', 'primary')
-        Alerta Roja
-    @endcomponent
+    {{$_ENV['APP_URL']}}
 
     @include('layouts.partials.slider_banner')
 @endsection

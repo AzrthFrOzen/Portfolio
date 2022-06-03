@@ -1,2 +1,4 @@
 <?php
-define('URL', 'http://localhost/Portfolio/public/');
+
+define('URL', myEnv('APP_URL'));
+
