@@ -13,7 +13,8 @@
         "psr-4": {
             "Libs\\":"libs/",
             "App\\Controllers\\":"app/controllers/",
-            "App\\Models\\": "app/models/"
+            "App\\Models\\": "app/models/",
+            "App\\Services\\": "app/services/"
         },
         "files": [
             "app/helpers/helpers.php"
@@ -21,6 +22,7 @@
     },
     "require": {
         "jenssegers/blade": "^1.4",
-        "vlucas/phpdotenv": "^5.4.1"
+        "vlucas/phpdotenv": "^5.4.1",
+        "illuminate/database": "*"
     }
 }
