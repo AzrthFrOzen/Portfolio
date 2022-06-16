@@ -15,19 +15,4 @@ class HomeController extends Controller
     {
         echo $this->blade->make('home.index', ['name' => 'Abraham'])->render();
     }
-
-    public function about()
-    {
-        echo $this->blade->make('home.about', ['name' => 'Abraham'])->render();
-    }
-
-    public function experience()
-    {
-        echo $this->blade->make('home.experience', ['name' => 'Abraham'])->render();
-    }
-
-    public function projects()
-    {
-        echo $this->blade->make('home.projects', ['name' => 'Abraham'])->render();
-    }
 }
