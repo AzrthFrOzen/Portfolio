@@ -35,7 +35,18 @@ class Core
             $controller_name = '\\app\\controllers\\' . $url[0] . 'Controller';
             if ($flag_service)
             {
-                $controller = new $controller_name($container->getContainer()->get($service_name));
+                if ($service_name == 'iproductoservice') 
+                {
+                    $controller = new $controller_name(
+                        $container->getContainer()->get('iproductoservice'),
+                        $container->getContainer()->get('icategoriaservice'),
+                        $container->getContainer()->get('imarcaservice')
+                    );    
+                }
+                else
+                {
+                    $controller = new $controller_name($container->getContainer()->get($service_name));
+                }                
             }
             else
             {

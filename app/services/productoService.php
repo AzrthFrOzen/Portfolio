@@ -1,6 +1,6 @@
 <?php
 
-namespace App\service;
+namespace App\Services;
 
 use App\Interfaces\IProductoService;
 use App\Models\ProductoModel;
@@ -17,23 +17,71 @@ class ProductoService implements IProductoService
 
     public function getAll(bool $estado)
     {
-        $result = ProductoModel::all();
+        $result = ProductoModel::select(
+            'productos.IdProducto',
+            'productos.IdMarca',
+            'productos.IdCateg',
+            'productos.Nombre',
+            'productos.Descripcion',
+            'productos.PrecioCosto',
+            'productos.PrecioVenta',
+            'productos.Stock',
+            'productos.StockMinimo',
+            'productos.Estado',
+            'categorias.Nombre as categoria',
+            'marcas.Nombre as marca',
+        )
+        ->join('categorias', 'productos.IdCateg', '=', 'categorias.IdCateg')
+        ->join('marcas', 'productos.IdMarca', '=', 'marcas.IdMarca')
+        ->where('productos.Estado', $estado)
+        ->OrderByDesc('productos.IdProducto')
+        ->get();
         return $result;
     }
+
     public function get(int $id)
     {
+        $model = ProductoModel::find($id);
+        if ($model == null) {
+            $model = new ProductoModel();
+            $model->estado = true;
+        }
 
+        return $model;
     }
     public function insert($obj)
     {
-
+        $model = new ProductoModel();
+        $model->IdProducto = $obj->IdProducto;
+        $model->IdMarca = $obj->IdMarca;
+        $model->IdCateg = $obj->IdCateg;
+        $model->Nombre = $obj->Nombre;
+        $model->Descripcion = $obj->Descripcion;
+        $model->PrecioCosto = $obj->PrecioCosto;
+        $model->PrecioVenta = $obj->PrecioVenta;
+        $model->Stock = $obj->Stock;
+        $model->StockMinimo = $obj->StockMinimo;
+        $model->estado = $obj->estado;
+        return $model->save();
     }
     public function update($obj)
     {
-
+        $model = ProductoModel::find($obj->IdProducto);
+        $model->IdProducto = $obj->IdProducto;
+        $model->IdMarca = $obj->IdMarca;
+        $model->IdCateg = $obj->IdCateg;
+        $model->Nombre = $obj->Nombre;
+        $model->Descripcion = $obj->Descripcion;
+        $model->PrecioCosto = $obj->PrecioCosto;
+        $model->PrecioVenta = $obj->PrecioVenta;
+        $model->Stock = $obj->Stock;
+        $model->StockMinimo = $obj->StockMinimo;
+        $model->estado = $obj->estado;
+        return $model->save();
     }
     public function delete(int $id)
     {
-        
+        $model = ProductoModel::find($id);
+        return $model->delete();
     }
 }

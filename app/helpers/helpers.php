@@ -20,4 +20,34 @@ if (! function_exists('myEcho'))
             }
         }
     }
+
+    if (!function_exists('selected')) 
+    {
+        function selected($id_current, $id_new)
+        {
+            if ($id_current == $id_new) 
+            {
+                return 'selected=selected';
+            }
+            else
+            {
+                return '';
+            }
+        }
+    }
+
+    if (!function_exists('checked')) 
+    {
+        function checked($estado)
+        {
+            if ($estado) 
+            {
+                return 'checked=checked';
+            }
+            else
+            {
+                return '';
+            }
+        }
+    }
 }

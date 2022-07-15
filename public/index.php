@@ -1,5 +1,8 @@
 <?php
 //EL ORDEN IMPORTA
+
+use Libs\ContainerDI;
+
 require_once "../vendor/autoload.php";
 
 // CARGAMOS EL ARCHIVO DE CONFIGURACIÓN .env
@@ -20,4 +23,4 @@ o Se puede colocar directamente new Libs\Core();
 //require_once '../config/config.php';
 //require_once '../app/helpers/helpers.php';
 
-$url = new Libs\Core();
+$url = new Libs\Core(new ContainerDI);

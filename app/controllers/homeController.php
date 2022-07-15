@@ -13,6 +13,6 @@ class HomeController extends Controller
     
     public function index()
     {
-        echo $this->blade->make('home.index', ['name' => 'Abraham'])->render();
+        echo $this->blade->render('home.index', ['name' => 'Abraham']);
     }
 }
