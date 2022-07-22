@@ -29,7 +29,7 @@ class ProductoService implements IProductoService
             'productos.StockMinimo',
             'productos.Estado',
             'categorias.Nombre as categoria',
-            'marcas.Nombre as marca',
+            'marcas.Nombre as marca'
         )
         ->join('categorias', 'productos.IdCateg', '=', 'categorias.IdCateg')
         ->join('marcas', 'productos.IdMarca', '=', 'marcas.IdMarca')

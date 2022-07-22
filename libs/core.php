@@ -2,8 +2,6 @@
 
 namespace Libs;
 
-
-
 class Core
 {
     public function __construct(ContainerDI $container)

@@ -2,6 +2,10 @@
 
 @section('title', 'Productos')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.css">
+@endsection
+
 @section('content')
 <!--
     {{$_ENV['APP_URL']}}
@@ -37,10 +41,8 @@
                         <td>{{$item->categoria}}</td>
                         <td>{{$item->marca}}</td>
                         <td>
-                            <a is-modal="true" href="<?=URL . "producto/detail/{$item->IdProducto}/{$item->IdCateg}/{$item->IdMarca}" ?>"><i class="fa fa-pencil"></i></a>
-                            <a href=""></a>
-                            <a href="<?=URL . "producto/delete/{$item->IdProducto}" ?>"><i class="fa fa-trash"></i></a>
-                            <a href=""></a>
+                            <a class="btn btn-danger btn-sm" is-modal="true" href="<?=URL . "producto/detail/{$item->IdProducto}/{$item->IdCateg}/{$item->IdMarca}" ?>"><i class="fa fa-pencil"></i></a>
+                            <button class="btn btn-primary btn-sm" my-name="{{$item->Nombre}}" my-action="<?=URL . "producto/delete/{$item->IdProducto}" ?>" onclick="remove(this)"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -54,6 +56,7 @@
 @endsection
 
     @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.js"></script>    
     <script src="{{URL}}js/scripts/modal_crud.js"></script>
 @endsection
     

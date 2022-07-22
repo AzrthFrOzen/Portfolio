@@ -1,10 +1,5 @@
-{{-- @extends('layouts.template') --}}
-
-{{-- @section('title', 'Productos') --}}
-
-{{-- @section('content') --}}
     <div class="container">
-        <form action="{{URL.'producto/save'}}" method="post">
+        <form action="{{URL.'producto/save'}}" method="post" id="myForm">
             <input type="hidden" name="IdProducto" value="{{$data->IdProducto}}">
             <div class="row">
                 <div class="col">
@@ -74,4 +69,3 @@
             </div>
         </form>
     </div>
-{{-- @endsection --}}

@@ -4,7 +4,8 @@ namespace Libs;
 
 use \Illuminate\Database\Capsule\Manager as Capsule;
 
-class Database {
+class Database 
+{
     public function __construct()
     {
         $capsule = new Capsule();
