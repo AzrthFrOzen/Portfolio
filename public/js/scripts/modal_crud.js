@@ -11,47 +11,57 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function crud()
-{
+function crud() {
+
+
     const form = document.querySelector('#myForm');
+    configValidator(form);
+
     form.addEventListener('submit', (event) => {
+
         event.preventDefault();
+
+
         const formdata = new FormData(form);
-
+        
         //VALIDACIÓN DE DATOS
+        const errors = validate(form, constraints)
+        
+        if (!errors) {
+            //RECUPERACIÓN DE DATOS DE FormData
+            const url = form.action;
 
-        //RECUPERACIÓN DE DATOS DE FormData
-        const url = form.action;
-
-        fetch(url, { method: 'POST', body: formdata })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success)
-            {
-                Swal.fire({
-                    title: '¡Bien!',
-                    text: data.message,
-                    icon: 'success',
-                    showConfirmButton: false,
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Aceptar !',
-                    timer: 2000
-                }).then(() => {
-                    location.href = data.redirection;
-                });
-            }
-            else
-            {
-                new Error('Error al guardar el producto')    
-            }
-        })
+            fetch(url, { method: 'POST', body: formdata })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: '¡Bien!',
+                        text: data.message,
+                        icon: 'success',
+                        showConfirmButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar !',
+                        timer: 2000
+                    }).then(() => {
+                        location.href = data.redirection;
+                    });
+                }
+                else
+                {
+                    new Error('Error al guardar el producto')
+                }
+            })
         .catch(error => new Error(error))
-
+        }
+        else
+        {
+            showErrors(form, errors || {})
+        }
     });
 }
 
-function remove(e)
-{
+function remove(e) {
     const action = e.getAttribute('my-action');
     const name = e.getAttribute('my-name');
 
@@ -66,26 +76,25 @@ function remove(e)
     }).then((result) => {
         if (result.isConfirmed) {
             fetch(action)
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    Swal.fire({
-                        title: '¡Eliminado!',
-                        text: data.message,
-                        icon: 'success',
-                        showConfirmButton: true,
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar !',
-                        timer: 2000
-                    }).then(() => {
-                        location.href = data.redirection;
-                    })
-                }
-                else
-                { 
-                    alert('Algo salió mal.')
-                }
-            })            
-        }        
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        Swal.fire({
+                            title: '¡Eliminado!',
+                            text: data.message,
+                            icon: 'success',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar !',
+                            timer: 2000
+                        }).then(() => {
+                            location.href = data.redirection;
+                        })
+                    }
+                    else {
+                        alert('Algo salió mal.')
+                    }
+                })
+        }
     })
 }
