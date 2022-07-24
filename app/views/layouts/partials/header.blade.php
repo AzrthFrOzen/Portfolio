@@ -242,6 +242,7 @@
                                                 <ul class="hb-dropdown">
                                                     <li class="active"><a href="{{URL."usuario/index"}}">Usuarios</a></li>
                                                     <li><a href="{{URL."tipo/index"}}">Niveles de usuarios</a></li>
+                                                    <li><a href="{{URL."permiso/index"}}">Permisos de usuarios</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown-holder"><a href="{{URL."cliente/index"}}">Clientes</a>
