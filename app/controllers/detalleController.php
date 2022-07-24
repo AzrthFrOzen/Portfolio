@@ -19,6 +19,6 @@ class DetalleController extends Controller
     public function index()
     {
         $data = $this->service->getAll();
-        myEcho($data);
+        echo $this->blade->make('detalle.index', ['data' => $data])->render();
     }
 }

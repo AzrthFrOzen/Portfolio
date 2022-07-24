@@ -49,7 +49,7 @@ class DetalleService implements IDetalleService
         $model->Cantidad = $obj->Cantidad;
         $model->PrecioVenta = $obj->PrecioVenta;
         $model->Item = $obj->Item;
-        $model->save();
+        return $model->save();
     }
     public function update($obj)
     {
@@ -60,11 +60,11 @@ class DetalleService implements IDetalleService
         $model->Cantidad = $obj->Cantidad;
         $model->PrecioVenta = $obj->PrecioVenta;
         $model->Item = $obj->Item;
-        $model->save();
+        return $model->save();
     }
     public function delete(int $id)
     {
         $model = DetalleModel::find($id);
-        $model->delete();
+        return $model->delete();
     }
 }

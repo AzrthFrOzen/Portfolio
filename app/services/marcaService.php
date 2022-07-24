@@ -35,23 +35,25 @@ class MarcaService implements IMarcaService
     }
     public function insert($obj)
     {
-        $model = new MarcaModel();
+        $model = new MarcaModel();        
         $model->IdMarca = $obj->IdMarca;
         $model->Nombre = $obj->Nombre;
         $model->Descripcion = $obj->Descripcion;
-        $model->save();
+        return $model->save();
     }
+
     public function update($obj)
     {
         $model = MarcaModel::find($obj->IdMarca);
         $model->IdMarca = $obj->IdMarca;
         $model->Nombre = $obj->Nombre;
         $model->Descripcion = $obj->Descripcion;
-        $model->save();
+        return $model->save();
     }
+
     public function delete(int $id)
     {
         $model = MarcaModel::find($id);
-        $model->delete();
+        return $model->delete();
     }
 }

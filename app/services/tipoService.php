@@ -16,11 +16,7 @@ class TipoService implements ITipoService
 
     public function getAll()
     {
-        $result = TipoModel::select(
-            'usuarios_tipo.IdTipo',
-            'usuarios_tipo.Nombre'
-        )
-        ->get();
+        $result = TipoModel::select('IdTipo','Nombre')->get();
         return $result;
     }
     public function get(int $id)
@@ -36,18 +32,18 @@ class TipoService implements ITipoService
         $model = new TipoModel();
         $model->IdTipo = $obj->IdTipo;
         $model->Nombre = $obj->Nombre;
-        $model->save();
+        return $model->save();
     }
     public function update($obj)
     {
         $model = TipoModel::find($obj->IdTipo);
         $model->IdTipo = $obj->IdTipo;
         $model->Nombre = $obj->Nombre;
-        $model->save();
+        return $model->save();
     }
     public function delete(int $id)
     {
         $model = TipoModel::find($id);
-        $model->delete();
+        return $model->delete();
     }
 }

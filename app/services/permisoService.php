@@ -20,7 +20,7 @@ class PermisoService implements IPermisoService
             'permisos.IdPermiso',
             'permisos.IdTipo',
             'permisos.Tablas',
-            'usuarios_tipo.Nombre'
+            'usuarios_tipo.Nombre as nombre'
         )
         ->join('usuarios_tipo', 'permisos.IdTipo', '=', 'usuarios_tipo.IdTipo')
         ->get();
@@ -40,7 +40,7 @@ class PermisoService implements IPermisoService
         $model->IdPermiso = $obj->IdPermiso;
         $model->IdTipo = $obj->IdTipo;
         $model->Tablas = $obj->Tablas;
-        $model->save();
+        return $model->save();
     }
     public function update($obj)
     {
@@ -48,12 +48,12 @@ class PermisoService implements IPermisoService
         $model->IdPermiso = $obj->IdPermiso;
         $model->IdTipo = $obj->IdTipo;
         $model->Tablas = $obj->Tablas;
-        $model->save();
+        return $model->save();
 
     }
     public function delete(int $id)
     {
         $model = PermisoModel::find($id);
-        $model->delete();
+        return $model->delete();
     }
 }

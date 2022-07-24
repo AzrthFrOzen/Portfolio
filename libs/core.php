@@ -33,13 +33,41 @@ class Core
             $controller_name = '\\app\\controllers\\' . $url[0] . 'Controller';
             if ($flag_service)
             {
-                if ($service_name == 'iproductoservice') 
+                if ($service_name == 'iclienteservice') {
+                    $controller = new $controller_name(
+                        $container->getContainer()->get('iclienteservice'),
+                        $container->getContainer()->get('iusuarioservice')
+                    );
+                }
+                else if ($service_name == 'iusuarioservice')
+                {
+                    $controller = new $controller_name(
+                        $container->getContainer()->get('iusuarioservice'),
+                        $container->getContainer()->get('itiposervice')
+                    );
+                }
+                else if ($service_name == 'ipermisoservice')
+                {
+                    $controller = new $controller_name(
+                        $container->getContainer()->get('ipermisoservice'),
+                        $container->getContainer()->get('itiposervice')
+                    );
+                }
+                else if ($service_name == 'iproductoservice') 
                 {
                     $controller = new $controller_name(
                         $container->getContainer()->get('iproductoservice'),
                         $container->getContainer()->get('icategoriaservice'),
                         $container->getContainer()->get('imarcaservice')
-                    );    
+                    );
+                }
+                else if ($service_name == 'idetalleservice') 
+                {
+                    $controller = new $controller_name(
+                        $container->getContainer()->get('idetalleservice'),
+                        $container->getContainer()->get('iventaservice'),
+                        $container->getContainer()->get('iproductoservice')
+                    );
                 }
                 else
                 {

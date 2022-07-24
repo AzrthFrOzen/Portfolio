@@ -44,7 +44,7 @@ class CategoriaService implements ICategoriaService
         $model->IdCateg = $obj->IdCateg;
         $model->Nombre = $obj->Nombre;
         $model->Descripcion = $obj->Descripcion;
-        $model->save();
+        return $model->save();
     }
     public function update($obj)
     {
@@ -52,11 +52,11 @@ class CategoriaService implements ICategoriaService
         $model->IdCateg = $obj->IdCateg;
         $model->Nombre = $obj->Nombre;
         $model->Descripcion = $obj->Descripcion;
-        $model->save();
+        return $model->save();
     }
     public function delete(int $id)
     {
         $model = CategoriaModel::find($id);
-        $model->delete();
+        return $model->delete();
     }
 }

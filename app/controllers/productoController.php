@@ -31,6 +31,7 @@ class ProductoController extends Controller
         echo $this->blade->make('producto.index', ['data' => $data])->render();
         
     }
+    
     public function detail($param = null)
     {
         $id = isset($param[0]) ? $param[0] : 0;

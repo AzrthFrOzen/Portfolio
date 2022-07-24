@@ -12,25 +12,23 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function crud() {
-
-
     const form = document.querySelector('#myForm');
     configValidator(form);
 
     form.addEventListener('submit', (event) => {
 
         event.preventDefault();
-
-
         const formdata = new FormData(form);
+        console.log(formdata);
         
         //VALIDACIÓN DE DATOS
         const errors = validate(form, constraints)
         
+        //console.log(errors);
         if (!errors) {
             //RECUPERACIÓN DE DATOS DE FormData
             const url = form.action;
-
+            console.log(form.action);
             fetch(url, { method: 'POST', body: formdata })
             .then(res => res.json())
             .then(data => {
@@ -52,7 +50,7 @@ function crud() {
                     new Error('Error al guardar el producto')
                 }
             })
-        .catch(error => new Error(error))
+            .catch(error => new Error(error))
         }
         else
         {
